@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CESART 3D - Showroom automobile avec modèles 3D haute fidélité">
+    <title>CESART 3D | Showroom Automobile</title>
+    <!-- Chargement de Tailwind CSS pour le style -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Import du Viewer 3D de Google -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background-color: black; color: white; }
+        .grid-bg {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        model-viewer {
+            --progress-bar-height: 2px;
+            --progress-bar-color: #ffffff;
+        }
+    </style>
+</head>
+<body class="font-sans selection:bg-white selection:text-black">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed w-full z-50 flex justify-between items-center px-8 py-6 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <a href="#accueil" class="text-xl font-black tracking-[0.3em] uppercase hover:opacity-80 transition">Cesart 3D</a>
+        <div class="hidden md:flex space-x-8 text-[10px] font-bold tracking-widest uppercase text-gray-400">
+            <a href="#boutique" class="hover:text-white transition">Boutique</a>
+            <a href="#projets" class="hover:text-white transition">Projets</a>
+            <a href="#contact" class="hover:text-white transition">Contact</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="accueil" class="relative h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden pt-20 grid-bg">
+        <h2 class="text-[10px] tracking-[1em] uppercase text-gray-500 mb-6">Standard Industriel</h2>
+        <h1 class="text-6xl md:text-8xl font-black mb-8 tracking-tighter leading-tight">
+            PRÉCISION <br> SANS LIMITES.
+        </h1>
+        <p class="max-w-xl text-gray-400 text-sm leading-relaxed mb-10 font-light tracking-wide uppercase">
+            Modèles 3D automobile haute fidélité optimisés pour le futur.
+        </p>
+        <button class="bg-white text-black px-10 py-4 text-[10px] font-black uppercase tracking-widest hover:bg-gray-200 transition" onclick="document.getElementById('boutique').scrollIntoView({behavior: 'smooth'})">
+            Explorer le Stock
+        </button>
+    </section>
+
+    <!-- LES 3 ESPACES DE TRI -->
+    <section id="projets" class="grid grid-cols-1 md:grid-cols-3 border-y border-white/10">
+        <div class="h-64 flex flex-col items-center justify-center border-r border-white/10 hover:bg-white hover:text-black transition-all duration-500 cursor-pointer group">
+            <span class="text-xs font-bold tracking-[0.5em] uppercase">Performance</span>
+            <span class="mt-2 text-[9px] opacity-40 uppercase group-hover:opacity-100">Supercars</span>
+        </div>
+        <div class="h-64 flex flex-col items-center justify-center border-r border-white/10 hover:bg-white hover:text-black transition-all duration-500 cursor-pointer group">
+            <span class="text-xs font-bold tracking-[0.5em] uppercase">Classics</span>
+            <span class="mt-2 text-[9px] opacity-40 uppercase group-hover:opacity-100">Légendes</span>
+        </div>
+        <div class="h-64 flex flex-col items-center justify-center hover:bg-white hover:text-black transition-all duration-500 cursor-pointer group">
+            <span class="text-xs font-bold tracking-[0.5em] uppercase">Concepts</span>
+            <span class="mt-2 text-[9px] opacity-40 uppercase group-hover:opacity-100">Futurisme</span>
+        </div>
+    </section>
+
+    <!-- SHOP GRID -->
+    <section id="boutique" class="px-8 py-24 bg-black">
+        <h3 class="text-2xl font-black tracking-widest mb-16 uppercase">Catalogue</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            
+            <!-- EXEMPLE DE PRODUIT 1 -->
+            <div class="group">
+                <div class="aspect-video bg-zinc-900 mb-4 overflow-hidden relative rounded-sm">
+                    <model-viewer 
+                        src="https://cdn.jsdelivr.net/gh/google/model-viewer/shared-assets/models/Astronaut.glb"
+                        alt="GT Concept 2024"
+                        auto-rotate 
+                        camera-controls 
+                        shadow-intensity="1"
+                        ar-status="not-presenting"
+                        class="w-full h-full">
+                    </model-viewer>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h4 class="font-bold text-sm tracking-widest uppercase">GT Concept 2024</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase">Performance / German</p>
+                    </div>
+                    <span class="text-sm font-light">25€</span>
+                </div>
+                <button class="mt-4 text-[10px] font-black border border-white/20 px-4 py-2 hover:bg-white hover:text-black transition uppercase" onclick="alert('Détails produit 1')">Détails</button>
+            </div>
+
+            <!-- EXEMPLE DE PRODUIT 2 -->
+            <div class="group">
+                <div class="aspect-video bg-zinc-900 mb-4 overflow-hidden relative rounded-sm flex items-center justify-center">
+                    <model-viewer 
+                        src="https://drive.google.com/uc?export=download&id=1KGj9wKES-Ij0IcwcSc89BdMOnbHFe4ps"
+                        alt="Porsche 911 Turbo 1975"
+                        auto-rotate 
+                        camera-controls 
+                        shadow-intensity="1"
+                        ar-status="not-presenting"
+                        class="w-full h-full">
+                    </model-viewer>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h4 class="font-bold text-sm tracking-widest uppercase">Retro Coupe</h4>
+                        <p class="text-[9px] text-gray-500 tracking-widest uppercase">Classics / Italian</p>
+                    </div>
+                    <span class="text-sm font-light">25€</span>
+                </div>
+                <button class="mt-4 text-[10px] font-black border border-white/20 px-4 py-2 hover:bg-white hover:text-black transition uppercase" onclick="alert('Détails produit 2')">Détails</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="border-t border-white/10 px-8 py-20 bg-black text-center">
+        <div class="text-xl font-black tracking-[0.3em] uppercase mb-4">Cesart 3D</div>
+        <p class="text-[10px] text-gray-500 tracking-[0.2em] mb-10">MODÈLES ISSUS DE SKETCHFAB SOUS LICENCE CC BY</p>
+        <div class="text-[9px] text-zinc-700 tracking-[0.5em] uppercase mt-10">
+            © 2026 Cesart 3D Studio. Créé pour les visionnaires.
+        </div>
+    </footer>
+
+</body>
+</html>
